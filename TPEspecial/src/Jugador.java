@@ -1,24 +1,33 @@
-import java.util.ArrayList;
-import java.util.Random;
 
-public class Jugador{
-	Maso Maso;
-	String Nombre;
-	
-	public Jugador(Maso M) {
-		this.Maso = M;
-	}
-	
-	public void setNombre(String Nombre) {
+public class Jugador {
+	private Maso Maso;
+	private String Nombre;
+	private int cantAtributos;
+
+	public Jugador(String Nombre) {
 		this.Nombre = Nombre;
+		this.Maso = new Maso();
+	}
+
+	public String getNombre() {
+		return this.Nombre;
 	}
 	
-	public int elegirAtributo() {
-		Carta C = Maso.getCarta();
-		ArrayList<String> atributos = C.getAtributos();
-		Random rnd = new Random();
-		rnd.setSeed(C.cantAtributos()); //Rango del Random, castear a INTEGER
-		return 1;
-		
+	public Carta getCarta() {
+		return Maso.getCarta();
+	}
+
+	public void addCarta(Carta C1) {
+		this.Maso.agregarCarta(C1);
+	}
+
+	public String elegirAtributo(Carta C) {
+		cantAtributos = C.cantAtributos();
+		int pos = (int) (Math.random() * cantAtributos);
+		return C.getNombreAtributo(pos);
+	}
+	
+	public boolean masoVacio() {
+		return this.Maso.esVacio();
 	}
 }
