@@ -36,7 +36,8 @@ public class Juego {
 		int resultado;
 		String atributo;
 
-		while ( this.J1.masoVacio() || this.J2.masoVacio()) {
+		while (!this.J1.masoVacio() && !this.J2.masoVacio()) {
+			System.out.println("Ganador es " + ganador);
 			Carta carta1 = ganador.getCarta();
 			Carta carta2 = oponente.getCarta();
 

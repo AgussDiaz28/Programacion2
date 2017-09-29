@@ -1,4 +1,4 @@
-//prueba
+
 public class SimularJuego {
 
 	public static void main(String[] args) {
