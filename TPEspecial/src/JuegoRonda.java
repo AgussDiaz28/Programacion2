@@ -16,12 +16,19 @@ public class JuegoRonda extends Juego {
 		Jugador ganador = this.J1;
 		Jugador oponente = this.J2;
 		
-		while (!(this.J1.masoVacio()) || !(this.J2.masoVacio()) || this.rondas < cont) {
-			jugadores = this.jugarMano(ganador , oponente );
+		while ( (!this.J1.masoVacio()) && (!this.J2.masoVacio()) && (this.rondas > cont) && (cont < (this.totalCartas/2) ) ) {
+			System.out.println("----");
+			System.out.println("Mano numero: " + cont );
+			
+			jugadores = this.jugarMano(ganador,oponente);
 			ganador = jugadores[0];
 			oponente = jugadores[1];
 			cont++;
 		}
+		
+		System.out.println("----");
+		System.out.println("Resultado Final");
+		this.resultado();
 	}
 	
 	public void setRondas(int rondas){

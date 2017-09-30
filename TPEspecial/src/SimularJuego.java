@@ -13,33 +13,32 @@ public class SimularJuego {
 		Carta C9 = new Carta();
 		Carta C10 = new Carta();
 		Carta C11 = new Carta();
-		Carta C12 = new Carta();
+//		Carta C12 = new Carta();
 		
+		C1.setAtributo("ternura", 18);
+		C1.setAtributo("valor", 18);
+		C1.setAtributo("fuerza", 18);
+
+		C2.setAtributo("ternura", 14);
+		C2.setAtributo("valor", 14);
+		C2.setAtributo("fuerza", 14);
 		
-		C1.setAtributo("ternura", 5);
-		C1.setAtributo("valor", 5);
-		C1.setAtributo("fuerza", 5);
+		C3.setAtributo("ternura", 14);
+		C3.setAtributo("valor", 14);
+		C3.setAtributo("fuerza", 14);
 		
-		C2.setAtributo("ternura", 10);
-		C2.setAtributo("valor", 10);
-		C2.setAtributo("fuerza", 10);
+		C4.setAtributo("ternura", 18);
+		C4.setAtributo("valor", 18);
+		C4.setAtributo("fuerza", 18);
 		
-		C3.setAtributo("ternura", 5);
-		C3.setAtributo("valor", 5);
-		C3.setAtributo("fuerza", 5);
+		C5.setAtributo("ternura", 18);
+		C5.setAtributo("valor", 18);
+		C5.setAtributo("fuerza", 18);
 		
-		C4.setAtributo("ternura", 10);
-		C4.setAtributo("valor", 10);
-		C4.setAtributo("fuerza", 10);
-		
-		C5.setAtributo("ternura", 5);
-		C5.setAtributo("valor", 5);
-		C5.setAtributo("fuerza", 5);
-		
-		C6.setAtributo("ternura", 10);
-		C6.setAtributo("valor", 10);
-		C6.setAtributo("fuerza", 10);
-		
+		C6.setAtributo("ternura", 17);
+		C6.setAtributo("valor", 17);
+		C6.setAtributo("fuerza", 17);
+//		
 		C7.setAtributo("ternura", 5);
 		C7.setAtributo("valor", 5);
 		C7.setAtributo("fuerza", 5);
@@ -58,13 +57,13 @@ public class SimularJuego {
 		C10.setAtributo("fuerza", 10);
 		
 		
-		C11.setAtributo("ternura", 10);
-		C11.setAtributo("valor", 10);
-		C11.setAtributo("fuerza", 10);
+		C11.setAtributo("ternura", 11);
+		C11.setAtributo("valor", 11);
+		C11.setAtributo("fuerza", 11);
 		
-		C12.setAtributo("ternura", 10);
-		C12.setAtributo("valor", 10);
-		C12.setAtributo("fuerza", 10);
+//		C12.setAtributo("ternura", 10);
+//		C12.setAtributo("valor", 10);
+//		C12.setAtributo("fuerza", 10);
 		
 		
 		Maso M = new Maso();
@@ -79,23 +78,34 @@ public class SimularJuego {
 		M.agregarCarta(C9);
 		M.agregarCarta(C10);
 		M.agregarCarta(C11);
-		M.agregarCarta(C12);
+//		M.agregarCarta(C12);
+		
+		Jugador J1 = new Jugador("Santiago");
+		Jugador J2 = new Jugador("Agustin");
+		
+		if (M.VerificarMaso()) {
+			System.out.println("El maso es correcto y tiene " + M.cantCartas() + " Cartas");
+			
+			JuegoRonda JR = new JuegoRonda(J1, J2, M);
+			JuegoNormal JN = new JuegoNormal(J1, J2, M);
+			System.out.println("------------------------------------------------------------------------------------");
+			System.out.println("Inicio juego por rondas");
+			JR.setRondas(2);
+			JR.jugar();
+			System.out.println("----");
+			System.out.println("--Fin de Juego Por Rondas--");
+			System.out.println("------------------------------------------------------------------------------------");
+			System.out.println("--Inicio de Juego Normal--");
+			JN.jugar();
+			System.out.println("----");
+			System.out.println("--Fin de Juego Normal--");
+			System.out.println("---------------------------------------------------------------------------------------------------");
+		}else {
+			System.out.println("El maso no es correcto");
+			
+		}
 		
 		
-		System.out.println("El maso es valido ?" + M.VerificarMaso());
-		
-		Jugador J1 = new Jugador("Santi");
-		Jugador J2 = new Jugador("Agus");
-		
-		System.out.println(J1.getNombreJugador());
-		System.out.println(J2.getNombreJugador());
-		
-		//JuegoRonda NR = new JuegoRonda(J1, J2, M);
-		JuegoNormal JN = new JuegoNormal(J1, J2, M);
-		
-		//prueba.setRondas(4);
-		//prueba.jugar();
-		JN.jugar();
 		
 	}
 }

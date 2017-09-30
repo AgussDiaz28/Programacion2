@@ -29,4 +29,8 @@ public class Jugador {
 	public boolean masoVacio() {
 		return this.Maso.esVacio();
 	}
+	
+	public int cartasRestantes() {
+		return this.Maso.cantCartas();
+	}
 }
