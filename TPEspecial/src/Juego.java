@@ -1,5 +1,5 @@
 
-public class Juego {
+public abstract class Juego {
 
 	Jugador J1;
 	Jugador J2;
@@ -11,7 +11,7 @@ public class Juego {
 		this.M = Maso;
 	}
 
-	public void repartir() {
+	public void repartirCartas() {
 		int descartar;
 		int cantidadCartas = this.M.cantCartas();
 		if (cantidadCartas > 2) {
@@ -29,47 +29,52 @@ public class Juego {
 		}
 	}
 
-	public void partida() {
-		Jugador ganador = this.J1;
-		Jugador oponente = this.J2;
+	public Jugador[] jugarMano(Jugador ganador,Jugador oponente) {
 		Jugador aux;
 		int resultado;
 		String atributo;
+		Jugador[] jugadores;
+		jugadores = new Jugador[2];
 
-		while (!this.J1.masoVacio() && !this.J2.masoVacio()) {
-			System.out.println("Ganador es " + ganador);
-			Carta carta1 = ganador.getCarta();
-			Carta carta2 = oponente.getCarta();
+		System.out.println("El ultimo ganador era " + ganador.getNombreJugador());
+		
+		Carta carta1 = ganador.getCarta();
+		Carta carta2 = oponente.getCarta();
 
-			atributo = ganador.elegirAtributo(carta1);
+		atributo = ganador.elegirAtributo(carta1);
 
-			resultado = carta1.compararCartas(carta2,atributo);
+		resultado = carta1.compararCartas(carta2,atributo);
 
-			switch (resultado) {
-			case 1:
-				ganador.addCarta(carta1);
-				ganador.addCarta(carta2);
-				break;
-			case -1:
-				oponente.addCarta(carta1);
-				oponente.addCarta(carta2);
-				aux = ganador;
-				ganador = oponente;
-				oponente = aux;
-				break;
-			case 0:
-				ganador.addCarta(carta1);
-				oponente.addCarta(carta2);
-				break;
+		switch (resultado) {
+		case 1:
+			ganador.addCarta(carta1);
+			ganador.addCarta(carta2);
+			break;
+		case -1:
+			oponente.addCarta(carta1);
+			oponente.addCarta(carta2);
+			aux = ganador;
+			ganador = oponente;
+			oponente = aux;
+			break;
+		case 0:
+			ganador.addCarta(carta1);
+			oponente.addCarta(carta2);
+			break;
 
-			default:
-				break;
-			}
-
+		default:
+			break;
 		}
-		System.out.println("El ganador es: " + ganador.getNombre());
-
-
+		
+		jugadores[0] = ganador;
+		jugadores[1] = oponente;
+		
+		System.out.println("Ganador al final de la mano era " + jugadores[0].getNombreJugador());
+		System.out.println("El perdedor al final de la ronda fue " + jugadores[1].getNombreJugador());
+		
+		return jugadores ;
 
 	}
+	
+	public abstract void jugar();
 }

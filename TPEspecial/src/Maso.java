@@ -22,7 +22,12 @@ public class Maso {
 		return (this.Cartas.size() == 0);
 	}
 
-	public boolean VerificarMasoCorrecto() { //Hace falta hacerlo si lo hago en el agregar?
+	public boolean VerificarMaso() { 
+		for (int i = 1; i < Cartas.size(); i++) {
+				if (! Cartas.get(0).equals(Cartas.get(i)) ){
+					return false;
+				}
+		}
 		return true;
 	}
 
