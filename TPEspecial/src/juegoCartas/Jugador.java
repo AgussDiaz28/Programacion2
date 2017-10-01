@@ -1,3 +1,4 @@
+package juegoCartas;
 
 public class Jugador {
 	private Maso Maso;
@@ -11,7 +12,7 @@ public class Jugador {
 	public String getNombreJugador() {
 		return this.Nombre;
 	}
-	
+
 	public Carta getCarta() {
 		return Maso.getCarta();
 	}
@@ -25,11 +26,11 @@ public class Jugador {
 		int pos = (int) (Math.random() * cantAtributos);
 		return C.getNombreAtributo(pos);
 	}
-	
+
 	public boolean masoVacio() {
 		return this.Maso.esVacio();
 	}
-	
+
 	public int cartasRestantes() {
 		return this.Maso.cantCartas();
 	}

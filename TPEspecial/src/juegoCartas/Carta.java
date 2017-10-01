@@ -1,3 +1,5 @@
+package juegoCartas;
+
 import java.util.ArrayList;
 
 public class Carta {

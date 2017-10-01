@@ -1,8 +1,9 @@
+package juegoCartas;
 
 public class SimularJuego {
 
 	public static void main(String[] args) {
-		Carta C1 = new Carta();	//Puedo crear cartas con 0 atributos
+		Carta C1 = new Carta();
 		Carta C2 = new Carta();
 		Carta C3 = new Carta();
 		Carta C4 = new Carta();
@@ -13,8 +14,8 @@ public class SimularJuego {
 		Carta C9 = new Carta();
 		Carta C10 = new Carta();
 		Carta C11 = new Carta();
-//		Carta C12 = new Carta();
-		
+		Carta C12 = new Carta();
+
 		C1.setAtributo("ternura", 18);
 		C1.setAtributo("valor", 18);
 		C1.setAtributo("fuerza", 18);
@@ -22,50 +23,51 @@ public class SimularJuego {
 		C2.setAtributo("ternura", 14);
 		C2.setAtributo("valor", 14);
 		C2.setAtributo("fuerza", 14);
-		
+
 		C3.setAtributo("ternura", 14);
 		C3.setAtributo("valor", 14);
 		C3.setAtributo("fuerza", 14);
-		
+
 		C4.setAtributo("ternura", 18);
 		C4.setAtributo("valor", 18);
 		C4.setAtributo("fuerza", 18);
-		
+
 		C5.setAtributo("ternura", 18);
 		C5.setAtributo("valor", 18);
 		C5.setAtributo("fuerza", 18);
-		
+
 		C6.setAtributo("ternura", 17);
 		C6.setAtributo("valor", 17);
 		C6.setAtributo("fuerza", 17);
-//		
+		//		
 		C7.setAtributo("ternura", 5);
 		C7.setAtributo("valor", 5);
 		C7.setAtributo("fuerza", 5);
-		
+
 		C8.setAtributo("ternura", 10);
 		C8.setAtributo("valor", 10);
 		C8.setAtributo("fuerza", 10);
-		
-		
+
+
 		C9.setAtributo("ternura", 5);
 		C9.setAtributo("valor", 5);
 		C9.setAtributo("fuerza", 5);
-		
+
 		C10.setAtributo("ternura", 10);
 		C10.setAtributo("valor", 10);
 		C10.setAtributo("fuerza", 10);
-		
-		
+
+
 		C11.setAtributo("ternura", 11);
 		C11.setAtributo("valor", 11);
 		C11.setAtributo("fuerza", 11);
-		
-//		C12.setAtributo("ternura", 10);
-//		C12.setAtributo("valor", 10);
-//		C12.setAtributo("fuerza", 10);
-		
-		
+
+
+		C12.setAtributo("ternura", 11);
+		C12.setAtributo("valor", 11);
+		C12.setAtributo("fuerza", 11);
+
+
 		Maso M = new Maso();
 		M.agregarCarta(C1);
 		M.agregarCarta(C2);
@@ -78,19 +80,19 @@ public class SimularJuego {
 		M.agregarCarta(C9);
 		M.agregarCarta(C10);
 		M.agregarCarta(C11);
-//		M.agregarCarta(C12);
-		
+		M.agregarCarta(C12);
+
 		Jugador J1 = new Jugador("Santiago");
 		Jugador J2 = new Jugador("Agustin");
-		
+
 		if (M.VerificarMaso()) {
 			System.out.println("El maso es correcto y tiene " + M.cantCartas() + " Cartas");
-			
+
 			JuegoRonda JR = new JuegoRonda(J1, J2, M);
 			JuegoNormal JN = new JuegoNormal(J1, J2, M);
 			System.out.println("------------------------------------------------------------------------------------");
 			System.out.println("Inicio juego por rondas");
-			JR.setRondas(2);
+			JR.setRondas(5);
 			JR.jugar();
 			System.out.println("----");
 			System.out.println("--Fin de Juego Por Rondas--");
@@ -100,12 +102,12 @@ public class SimularJuego {
 			System.out.println("----");
 			System.out.println("--Fin de Juego Normal--");
 			System.out.println("---------------------------------------------------------------------------------------------------");
-		}else {
-			System.out.println("El maso no es correcto");
-			
 		}
-		
-		
-		
+		else {
+			System.out.println("El maso no es correcto");
+		}
+
+
+
 	}
 }

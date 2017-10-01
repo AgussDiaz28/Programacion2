@@ -1,3 +1,4 @@
+package juegoCartas;
 
 public abstract class Juego {
 
@@ -34,15 +35,15 @@ public abstract class Juego {
 	public Jugador[] jugarMano(Jugador ganador,Jugador oponente) {
 		Jugador aux;
 		int resultado;
-		
+
 		Jugador[] jugadores;
 		jugadores = new Jugador[2];
-		
+
 		Carta carta1 = ganador.getCarta();
 		Carta carta2 = oponente.getCarta();
 
 		resultado = carta1.compararCartas(carta2,ganador.elegirAtributo(carta1));
-		
+
 		if (resultado == 1){	//VOLVIO A GANAR EL MISMO JUGADOR
 			ganador.addCarta(carta1);
 			ganador.addCarta(carta2);
@@ -59,21 +60,21 @@ public abstract class Juego {
 			oponente.addCarta(carta2);
 			System.out.println("Empataron");
 		}
-		
-	
-		
+
+
+
 		jugadores[0] = ganador;
 		jugadores[1] = oponente;
-		
+
 		return jugadores ;
 
 	}
-	
+
 	public void resultado() {
 		if (this.J1.masoVacio()){
 			System.out.println("Gano el jugador: " + this.J2.getNombreJugador() );
 		}else if (this.J2.masoVacio()) {
-		System.out.println("Gano el jugador: " + this.J1.getNombreJugador());
+			System.out.println("Gano el jugador: " + this.J1.getNombreJugador());
 		}else if (this.J1.cartasRestantes() > this.J2.cartasRestantes() ) {
 			System.out.println("Gano el jugador: " + this.J1.getNombreJugador());
 		}else if (this.J1.cartasRestantes() < this.J2.cartasRestantes() ) {
@@ -82,6 +83,6 @@ public abstract class Juego {
 			System.out.println("Empataron");
 		}
 	}
-	
+
 	public abstract void jugar();
 }

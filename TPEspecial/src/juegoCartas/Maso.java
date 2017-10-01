@@ -1,3 +1,5 @@
+package juegoCartas;
+
 import java.util.ArrayList;
 
 public class Maso {
@@ -9,9 +11,13 @@ public class Maso {
 		//agregarCarta(card);
 	}
 
-	public void agregarCarta(Carta card) {	//Agrego cartas al maso, falta validar
-//		if (this.Cartas.get(0).equals(card) ) {}	//El equals se fija si son del mismo tipo de cartas? Eso no va en el VerificarMaso?
+	public void agregarCarta(Carta card) {
+		if (card.cantAtributos() >= 3 && card.cantAtributos() <= 6) {
 			this.Cartas.add(card);
+		}
+		else {
+			System.out.println("La carta debe tener entre 3 y 6 atributos para agregarla al maso");
+		}
 	}
 
 	public Carta getCarta() {	//Siempre da la primer carta del paso y la quita del maso
@@ -24,9 +30,9 @@ public class Maso {
 
 	public boolean VerificarMaso() { 
 		for (int i = 1; i < Cartas.size(); i++) {
-				if (! Cartas.get(0).equals(Cartas.get(i)) ){
-					return false;
-				}
+			if (! Cartas.get(0).equals(Cartas.get(i)) ){
+				return false;
+			}
 		}
 		return true;
 	}
