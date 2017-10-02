@@ -2,8 +2,8 @@ package juegoCartas;
 
 public class JuegoNormal extends Juego {
 
-	public JuegoNormal(Jugador Jugador1, Jugador Jugador2, Maso Maso) {
-		super(Jugador1, Jugador2, Maso);
+	public JuegoNormal(Jugador Jugador1, Jugador Jugador2, Mazo mazo) {
+		super(Jugador1, Jugador2, mazo);
 
 	}
 
@@ -19,7 +19,7 @@ public class JuegoNormal extends Juego {
 		Jugador ganador = this.J1;
 		Jugador oponente = this.J2;
 
-		while ( (!this.J1.masoVacio()) && (!this.J2.masoVacio()) && (cont < (this.totalCartas/2) ) ) {
+		while ( (!this.J1.mazoVacio()) && (!this.J2.mazoVacio()) && (cont < (this.totalCartas/2) ) ) {
 			System.out.println("----");
 			System.out.println("Mano numero: " + cont );
 
@@ -32,8 +32,6 @@ public class JuegoNormal extends Juego {
 		System.out.println("----");
 		System.out.println("Resultado Final");
 		this.resultado();
-
-
 
 	}
 }

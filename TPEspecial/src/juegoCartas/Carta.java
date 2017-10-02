@@ -6,10 +6,19 @@ public class Carta {
 
 	private ArrayList<String> atributos;
 	private ArrayList<Integer> valores;
+	private String nombre;
 
 	public Carta() {
 		this.atributos = new ArrayList<String>();
 		this.valores = new ArrayList<Integer>();
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getNombre() {
+		return this.nombre;
 	}
 
 	public int compararCartas(Carta c1,String p) {
@@ -25,7 +34,7 @@ public class Carta {
 		}
 	}
 
-	public boolean equals(Carta card) {
+	public boolean mismoTipo(Carta card) {
 		for (int i=0; i < this.atributos.size(); i++) {
 			if (this.atributos.get(i)  != card.getNombreAtributo(i)) {
 				return false;
@@ -45,7 +54,7 @@ public class Carta {
 				return i;
 			}
 		}
-		return -1; // Valor Absurdo, cartas de masos distintos
+		return -1; //Valor Absurdo, cartas de mazos distintos
 	}
 
 	public int getValor(int pos) {
@@ -59,13 +68,12 @@ public class Carta {
 	public ArrayList<String> getAtributos() {
 		ArrayList<String> arreglo = new ArrayList<String>();
 		if (this.atributos.size() > 0) {
-			for (int i=0; i==this.atributos.size(); i++) { //Entra solo al final
+			for (int i=0; i < this.atributos.size(); i++) { 
 				arreglo.add(this.atributos.get(i));
 			}
-			return arreglo;
 		}
-		return arreglo; //Como puedo devolver algo sin sentido por aca? Para que sea condicion de corte
-	}	//Devolver un arraylist vacio??
+		return arreglo;
+	}
 
 	public int cantAtributos() {
 		return this.atributos.size();

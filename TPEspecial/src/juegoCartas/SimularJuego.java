@@ -68,7 +68,7 @@ public class SimularJuego {
 		C12.setAtributo("fuerza", 11);
 
 
-		Maso M = new Maso();
+		Mazo M = new Mazo();
 		M.agregarCarta(C1);
 		M.agregarCarta(C2);
 		M.agregarCarta(C3);
@@ -85,8 +85,8 @@ public class SimularJuego {
 		Jugador J1 = new Jugador("Santiago");
 		Jugador J2 = new Jugador("Agustin");
 
-		if (M.VerificarMaso()) {
-			System.out.println("El maso es correcto y tiene " + M.cantCartas() + " Cartas");
+		if (M.verificarMazo()) {
+			System.out.println("El mazo es correcto y tiene " + M.cantCartas() + " Cartas");
 
 			JuegoRonda JR = new JuegoRonda(J1, J2, M);
 			JuegoNormal JN = new JuegoNormal(J1, J2, M);
@@ -104,7 +104,7 @@ public class SimularJuego {
 			System.out.println("---------------------------------------------------------------------------------------------------");
 		}
 		else {
-			System.out.println("El maso no es correcto");
+			System.out.println("El mazo no es correcto");
 		}
 
 

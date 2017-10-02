@@ -1,12 +1,12 @@
 package juegoCartas;
 
 public class Jugador {
-	private Maso Maso;
+	private Mazo mazo;
 	private String Nombre;
 
 	public Jugador(String Nombre) {
 		this.Nombre = Nombre;
-		this.Maso = new Maso();
+		this.mazo = new Mazo();
 	}
 
 	public String getNombreJugador() {
@@ -14,11 +14,11 @@ public class Jugador {
 	}
 
 	public Carta getCarta() {
-		return Maso.getCarta();
+		return mazo.getCarta();
 	}
 
 	public void addCarta(Carta C1) {
-		this.Maso.agregarCarta(C1);
+		this.mazo.agregarCarta(C1);
 	}
 
 	public String elegirAtributo(Carta C) {
@@ -27,11 +27,11 @@ public class Jugador {
 		return C.getNombreAtributo(pos);
 	}
 
-	public boolean masoVacio() {
-		return this.Maso.esVacio();
+	public boolean mazoVacio() {
+		return this.mazo.esVacio();
 	}
 
 	public int cartasRestantes() {
-		return this.Maso.cantCartas();
+		return this.mazo.cantCartas();
 	}
 }

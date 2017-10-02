@@ -5,8 +5,8 @@ public class JuegoRonda extends Juego {
 
 	private int rondas;
 
-	public JuegoRonda(Jugador Jugador1, Jugador Jugador2, Maso Maso) {
-		super(Jugador1, Jugador2, Maso);
+	public JuegoRonda(Jugador Jugador1, Jugador Jugador2, Mazo mazo) {
+		super(Jugador1, Jugador2, mazo);
 
 	}
 
@@ -17,7 +17,7 @@ public class JuegoRonda extends Juego {
 		Jugador ganador = this.J1;
 		Jugador oponente = this.J2;
 
-		while ( (!this.J1.masoVacio()) && (!this.J2.masoVacio()) && (this.rondas > cont)) { // && (cont < (this.totalCartas/2) ) 
+		while ((!this.J1.mazoVacio()) && (!this.J2.mazoVacio()) && (this.rondas > cont)) { 
 			System.out.println("----");
 			System.out.println("Mano numero: " + cont );
 
@@ -32,7 +32,7 @@ public class JuegoRonda extends Juego {
 		this.resultado();
 	}
 
-	public void setRondas(int rondas){
+	public void setRondas(int rondas) {
 		this.rondas = rondas;
 	}
 }
