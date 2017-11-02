@@ -39,7 +39,7 @@ public class SimularJuego {
 		C6.setAtributo("ternura", 17);
 		C6.setAtributo("valor", 17);
 		C6.setAtributo("fuerza", 17);
-		//		
+		
 		C7.setAtributo("ternura", 5);
 		C7.setAtributo("valor", 5);
 		C7.setAtributo("fuerza", 5);

@@ -1,5 +1,7 @@
 package juegoCartas;
 
+import java.util.ArrayList;
+
 public class Jugador {
 	private Mazo mazo;
 	private String Nombre;
@@ -24,7 +26,8 @@ public class Jugador {
 	public String elegirAtributo(Carta C) {
 		int cantAtributos = C.cantAtributos();
 		int pos = (int) (Math.random() * cantAtributos);
-		return C.getNombreAtributo(pos);
+		ArrayList <String> atributos = C.getAtributos();
+		return atributos.get(pos);
 	}
 
 	public boolean mazoVacio() {
