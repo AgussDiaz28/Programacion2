@@ -5,17 +5,15 @@ import java.util.ArrayList;
 public class Mazo {
 
 	private ArrayList<Carta> Cartas;
+	private Filtro filtro;
 
 	public Mazo() {
 		this.Cartas = new ArrayList<Carta>();
 	}
 
 	public void agregarCarta(Carta card) {
-		if (card.cantAtributos() >= 3 && card.cantAtributos() <= 6) {
+		if (Cartas.get(0).mismoTipo(card)) {
 			this.Cartas.add(card);
-		}
-		else {
-			System.out.println("La carta debe tener entre 3 y 6 atributos para agregarla al mazo");
 		}
 	}
 
@@ -38,5 +36,19 @@ public class Mazo {
 
 	public int cantCartas() {		//Devuelve la cantidad de cartas del mazo
 		return this.Cartas.size();
+	}
+
+	public Mazo buscar(String atributo, int valor) {
+		Mazo retorno = new Mazo();
+		for (Carta C : Cartas) {
+			if (filtro.cumple(C)) {
+				this.agregarCarta(C);
+			}
+		}
+		return retorno;
+	}
+
+	public void setFiltro(Filtro f) {
+		this.filtro = f;
 	}
 }

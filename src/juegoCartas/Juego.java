@@ -5,13 +5,11 @@ public abstract class Juego {
 	protected Jugador J1;
 	protected Jugador J2;
 	protected Mazo M;
-	protected int totalCartas;
 
 	protected Juego(Jugador Jugador1, Jugador Jugador2, Mazo mazo) {
 		this.J1 = Jugador1;
 		this.J2 = Jugador2;
 		this.M = mazo;
-		this.totalCartas = M.cantCartas();
 	}
 
 	public void repartirCartas() {

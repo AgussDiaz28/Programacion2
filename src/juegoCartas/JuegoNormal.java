@@ -19,7 +19,7 @@ public class JuegoNormal extends Juego {
 		Jugador ganador = this.J1;
 		Jugador oponente = this.J2;
 
-		while ( (!this.J1.mazoVacio()) && (!this.J2.mazoVacio()) && (cont < (this.totalCartas/2) ) ) {
+		while ( (!this.J1.mazoVacio()) && (!this.J2.mazoVacio()) ) {
 			System.out.println("----");
 			System.out.println("Mano numero: " + cont );
 
