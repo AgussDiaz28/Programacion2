@@ -1,6 +1,6 @@
 package juegoCartas;
 
-public class FiltroMayor extends Filtro {
+public class FiltroMayor extends FiltroSimple {
 
 	public FiltroMayor(String atributo, int valor) {
 		super(atributo, valor);

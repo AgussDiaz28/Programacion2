@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Mazo {
 
 	private ArrayList<Carta> Cartas;
-	private Filtro filtro;
 
 	public Mazo() {
 		this.Cartas = new ArrayList<Carta>();
@@ -38,7 +37,7 @@ public class Mazo {
 		return this.Cartas.size();
 	}
 
-	public Mazo buscar(String atributo, int valor) {
+	public Mazo buscar(Filtro filtro) {
 		Mazo retorno = new Mazo();
 		for (Carta C : Cartas) {
 			if (filtro.cumple(C)) {
@@ -47,8 +46,5 @@ public class Mazo {
 		}
 		return retorno;
 	}
-
-	public void setFiltro(Filtro f) {
-		this.filtro = f;
-	}
+	
 }
