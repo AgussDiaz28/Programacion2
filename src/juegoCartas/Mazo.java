@@ -11,7 +11,10 @@ public class Mazo {
 	}
 
 	public void agregarCarta(Carta card) {
-		if (Cartas.get(0).mismoTipo(card)) {
+		if (Cartas.isEmpty()) {
+			this.Cartas.add(card);
+		}
+		else if (Cartas.get(0).mismoTipo(card)) {
 			this.Cartas.add(card);
 		}
 	}
@@ -37,14 +40,14 @@ public class Mazo {
 		return this.Cartas.size();
 	}
 
-	public Mazo buscar(Filtro filtro) {
-		Mazo retorno = new Mazo();
+	public ArrayList<Carta> buscar(Filtro filtro) {
+		ArrayList<Carta> retorno = new ArrayList<Carta>();
 		for (Carta C : Cartas) {
 			if (filtro.cumple(C)) {
-				this.agregarCarta(C);
+				retorno.add(C);
 			}
 		}
 		return retorno;
 	}
-	
+
 }

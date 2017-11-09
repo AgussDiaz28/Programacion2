@@ -1,38 +1,19 @@
 package juegoCartas;
 
 
-public class JuegoRonda extends Juego {
+public class JuegoRonda extends JuegoConRondas {
 
-	private int rondas;
+	private int rondasJugadas;
 
-	public JuegoRonda(Jugador Jugador1, Jugador Jugador2, Mazo mazo) {
-		super(Jugador1, Jugador2, mazo);
-
+	public JuegoRonda(Jugador Jugador1, Jugador Jugador2, int cantRondas) {
+		super(Jugador1, Jugador2, cantRondas);
+		rondasJugadas = 0;
 	}
 
-	public void jugar() {
-		this.repartirCartas();
-		int cont = 0;
-		Jugador[] jugadores = new Jugador[2];
-		Jugador ganador = this.J1;
-		Jugador oponente = this.J2;
-
-		while ((!this.J1.mazoVacio()) && (!this.J2.mazoVacio()) && (this.rondas > cont)) { 
-			System.out.println("----");
-			System.out.println("Mano numero: " + cont );
-
-			jugadores = this.jugarMano(ganador,oponente);
-			ganador = jugadores[0];
-			oponente = jugadores[1];
-			cont++;
-		}
-
-		System.out.println("----");
-		System.out.println("Resultado Final");
-		this.resultado();
+	public boolean condicion() {
+		boolean condicion = (!J1.mazoVacio()) && (J2.mazoVacio()) && (this.cantRondas > this.rondasJugadas);
+		rondasJugadas++;
+		return condicion;
 	}
 
-	public void setRondas(int rondas) {
-		this.rondas = rondas;
-	}
 }

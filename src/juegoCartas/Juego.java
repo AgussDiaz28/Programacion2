@@ -1,15 +1,39 @@
 package juegoCartas;
 
-public abstract class Juego {
+public class Juego {
 
 	protected Jugador J1;
 	protected Jugador J2;
 	protected Mazo M;
+	private ModoDeJuego politica;
 
-	protected Juego(Jugador Jugador1, Jugador Jugador2, Mazo mazo) {
+	protected Juego(Jugador Jugador1, Jugador Jugador2, Mazo mazo, ModoDeJuego politica) {
 		this.J1 = Jugador1;
 		this.J2 = Jugador2;
 		this.M = mazo;
+		this.politica = politica;
+	}
+
+	public void jugar() {
+		this.repartirCartas();
+		int cont = 0;
+		Jugador[] jugadores = new Jugador[2];
+		Jugador ganador = this.J1;
+		Jugador oponente = this.J2;
+
+		while (politica.condicion()) { 
+			System.out.println("----");
+			System.out.println("Mano numero: " + cont );
+
+			jugadores = this.jugarMano(ganador,oponente);
+			ganador = jugadores[0];
+			oponente = jugadores[1];
+			cont++;
+		}
+
+		System.out.println("----");
+		System.out.println("Resultado Final");
+		this.resultado();
 	}
 
 	public void repartirCartas() {
@@ -85,5 +109,4 @@ public abstract class Juego {
 		}
 	}
 
-	public abstract void jugar();
 }

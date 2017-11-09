@@ -8,11 +8,8 @@ public class Carta {
 	private HashMap<String, Integer> atributos;
 	private String nombre;
 
-	public Carta() {
+	public Carta(String nombre) {
 		this.atributos = new HashMap<String, Integer>();
-	}
-
-	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
@@ -33,13 +30,13 @@ public class Carta {
 	}
 
 	public boolean mismoTipo(Carta card) {
-		
+
 		for (String A : atributos.keySet()) {
 			if (this.atributos.containsKey(A) != card.hasKey(A)) { //revisar card.atributos es privado
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 
@@ -48,7 +45,12 @@ public class Carta {
 	}
 
 	public int getValor(String atributo) {
-		return this.atributos.get(atributo);
+		if (atributos.containsKey(atributo)) {
+			return this.atributos.get(atributo);
+		}
+		else {
+			return -1;
+		}
 	}
 
 	public ArrayList<String> getAtributos() {
@@ -64,7 +66,7 @@ public class Carta {
 	public int cantAtributos() {
 		return this.atributos.size();
 	}
-	
+
 	public boolean hasKey(String A){
 		return this.atributos.containsKey(A);
 	}
