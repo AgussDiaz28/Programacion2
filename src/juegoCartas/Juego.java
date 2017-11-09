@@ -16,7 +16,7 @@ public class Juego {
 
 	public void jugar() {
 		this.repartirCartas();
-		int cont = 0;
+		int cont = 1;
 		Jugador[] jugadores = new Jugador[2];
 		Jugador ganador = this.J1;
 		Jugador oponente = this.J2;
