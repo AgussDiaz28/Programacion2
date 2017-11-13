@@ -22,13 +22,6 @@ public class OrganizadorDeJuegos {
 		this.Mazos.add(M);
 	}
 
-
-
-
-
-
-
-
 	public static void main(String[] args) {
 		int cantRondas = 3;
 
@@ -118,7 +111,7 @@ public class OrganizadorDeJuegos {
 		Jugador J2 = new Jugador("Agustin");
 
 
-		//Creo el organizador de juegos y le añado los mazos.
+		//Creo el organizador de juegos y le aï¿½ado los mazos.
 
 
 		OrganizadorDeJuegos santi = new OrganizadorDeJuegos();
@@ -145,14 +138,14 @@ public class OrganizadorDeJuegos {
 			System.out.println("No hay cartas con las caracteristicas solicitadas");
 		}
 
-		/*
+		
 		//Juego una partida por rondas y una partida normal.
 
 
 		if (M.verificarMazo()) {
 			System.out.println("El mazo es correcto y tiene " + M.cantCartas() + " Cartas");
-			JuegoRondas JR = new JuegoRondas(J1, J2, cantRondas);
-			JuegoNormal JN = new JuegoNormal(J1, J2);
+			TipoDeJuego JR = new JuegoRondas(cantRondas);
+			TipoDeJuego JN = new TipoDeJuego();
 			Juego PartidaRondas = new Juego(J1, J2, M, JR);
 			System.out.println("------------------------------------------------------------------------------------");
 			System.out.println("Inicio juego por rondas");
@@ -170,7 +163,7 @@ public class OrganizadorDeJuegos {
 		else {
 			System.out.println("El mazo no es correcto");
 		}
-		 */
+		 
 
 
 	}

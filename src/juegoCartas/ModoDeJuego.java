@@ -1,5 +1,6 @@
 package juegoCartas;
 
 public interface ModoDeJuego {
-	public boolean condicion();
+	public boolean condicion(Jugador J1,Jugador J2);
+	
 }

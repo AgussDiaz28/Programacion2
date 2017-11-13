@@ -1,20 +1,15 @@
 package juegoCartas;
 
-public class JuegoRondas implements ModoDeJuego {
-
-	private Jugador J1;
-	private Jugador J2;
+public class JuegoRondas extends TipoDeJuego {
 	private int cantRondas;
 	private int rondasJugadas;
 
-	public JuegoRondas(Jugador Jugador1, Jugador Jugador2, int cantRondas) {
-		this.J1 = Jugador1;
-		this.J2 = Jugador2;
+	public JuegoRondas(int cantRondas) {
 		this.cantRondas = cantRondas;
 	}
 
-	public boolean condicion() {
-		boolean condicion = !((J1.mazoVacio()) || (J2.mazoVacio()) || (this.cantRondas < this.rondasJugadas));
+	public boolean condicion(Jugador J1,Jugador J2) {
+		boolean condicion = ( super.condicion(J1,J2) || !(this.cantRondas < this.rondasJugadas));
 		rondasJugadas++;
 		return condicion;
 	}

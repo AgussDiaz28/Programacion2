@@ -5,9 +5,9 @@ public class Juego {
 	protected Jugador J1;
 	protected Jugador J2;
 	protected Mazo M;
-	private ModoDeJuego politica;
+	private TipoDeJuego politica;
 
-	protected Juego(Jugador Jugador1, Jugador Jugador2, Mazo mazo, ModoDeJuego politica) {
+	protected Juego(Jugador Jugador1, Jugador Jugador2, Mazo mazo, TipoDeJuego politica) {
 		this.J1 = Jugador1;
 		this.J2 = Jugador2;
 		this.M = mazo;
@@ -21,7 +21,7 @@ public class Juego {
 		Jugador ganador = this.J1;
 		Jugador oponente = this.J2;
 
-		while (politica.condicion()) { 
+		while (politica.condicion(J1,J2)) { 
 			System.out.println("----");
 			System.out.println("Mano numero: " + cont );
 
