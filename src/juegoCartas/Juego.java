@@ -14,26 +14,26 @@ public class Juego {
 		this.politica = politica;
 	}
 
-	public void jugar() {
+	public String jugar() {
 		this.repartirCartas();
-		int cont = 1;
+		//int cont = 1;
 		Jugador[] jugadores = new Jugador[2];
 		Jugador ganador = this.J1;
 		Jugador oponente = this.J2;
 
 		while (politica.condicion(J1,J2)) { 
-			System.out.println("----");
-			System.out.println("Mano numero: " + cont );
+			//System.out.println("----");
+			//System.out.println("Mano numero: " + cont );
 
 			jugadores = this.jugarMano(ganador,oponente);
 			ganador = jugadores[0];
 			oponente = jugadores[1];
-			cont++;
+			//cont++;
 		}
 
-		System.out.println("----");
-		System.out.println("Resultado Final");
-		this.resultado();
+		//System.out.println("----");
+		//System.out.println("Resultado Final");
+		return this.resultado();
 	}
 
 	public void repartirCartas() {
@@ -69,7 +69,7 @@ public class Juego {
 		if (resultado == 1) {	//VOLVIO A GANAR EL MISMO JUGADOR
 			ganador.addCarta(carta1);
 			ganador.addCarta(carta2);
-			System.out.println("Ganador de la mano es: " + ganador.getNombreJugador());
+			//System.out.println("Ganador de la mano es: " + ganador.getNombreJugador());
 		}
 		else if (resultado == -1) { //PERDIO EL ULTIMO GANADOR
 			oponente.addCarta(carta1);
@@ -77,35 +77,35 @@ public class Juego {
 			aux = ganador;
 			ganador = oponente;
 			oponente = aux;
-			System.out.println("El Ganador de la mano es: " + ganador.getNombreJugador());
+			//System.out.println("El Ganador de la mano es: " + ganador.getNombreJugador());
 		}
 		else if (resultado == 0) { //EMPATE
 			ganador.addCarta(carta1);
 			oponente.addCarta(carta2);
-			System.out.println("Empataron");
+			//System.out.println("Empataron");
 		}
 
 		jugadores[0] = ganador;
 		jugadores[1] = oponente;
 
-		return jugadores ;
+		return jugadores;
 	}
 
-	public void resultado() {
+	public String resultado() {
 		if (J1.mazoVacio()) {
-			System.out.println("Gano el jugador: " + J2.getNombreJugador());
+			return ("El ganador es: " + J2.getNombreJugador());
 		}
 		else if (J2.mazoVacio()) {
-			System.out.println("Gano el jugador: " + J1.getNombreJugador());
+			return ("El ganador es: " + J1.getNombreJugador());
 		}
 		else if (J1.cartasRestantes() > this.J2.cartasRestantes() ) {
-			System.out.println("Gano el jugador: " + J1.getNombreJugador());
+			return ("El ganador es: " + J1.getNombreJugador());
 		}
 		else if (J1.cartasRestantes() < this.J2.cartasRestantes() ) {
-			System.out.println("Gano el jugador: " + J2.getNombreJugador());
+			return ("El ganador es: " + J2.getNombreJugador());
 		}
 		else {
-			System.out.println("Empataron");
+			return ("El resultado es: Empate");
 		}
 	}
 

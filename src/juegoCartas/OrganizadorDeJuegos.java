@@ -149,16 +149,16 @@ public class OrganizadorDeJuegos {
 			Juego PartidaRondas = new Juego(J1, J2, M, JR);
 			System.out.println("------------------------------------------------------------------------------------");
 			System.out.println("Inicio juego por rondas");
-			PartidaRondas.jugar();
+			System.out.println(PartidaRondas.jugar());
 			System.out.println("----");
 			System.out.println("--Fin de Juego Por Rondas--");
 			Juego Partida = new Juego(J1, J2, M, JN);
 			System.out.println("------------------------------------------------------------------------------------");
 			System.out.println("--Inicio de Juego Normal--");
-			Partida.jugar();
+			System.out.println(Partida.jugar());
 			System.out.println("----");
 			System.out.println("--Fin de Juego Normal--");
-			System.out.println("---------------------------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------");
 		}
 		else {
 			System.out.println("El mazo no es correcto");

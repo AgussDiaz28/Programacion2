@@ -18,7 +18,7 @@ public class Carta {
 	}
 
 	public int compararCartas(Carta c1, String p) {
-		if (this.atributos.get(p) == c1.getValor(p)) {
+		if (this.atributos.get(p).equals(c1.getValor(p))) {
 			return 0; // EMPATE
 		}
 		else if (this.atributos.get(p) < c1.getValor(p)) {
@@ -30,13 +30,14 @@ public class Carta {
 	}
 
 	public boolean mismoTipo(Carta card) {
-
+		if (this.cantAtributos() != card.cantAtributos()) {
+			return false;
+		}
 		for (String A : atributos.keySet()) {
-			if (this.atributos.containsKey(A) != card.hasKey(A)) { //revisar card.atributos es privado
+			if (!card.hasKey(A)) {
 				return false;
 			}
 		}
-
 		return true;
 	}
 

@@ -7,7 +7,12 @@ public class FiltroMayor extends FiltroSimple {
 	}
 
 	public boolean cumple(Carta C) {
-		return C.getValor(this.atributo) > this.valor;
+		if (C.getValor(this.atributo) != -1) {
+			return C.getValor(this.atributo) > this.valor;
+		}
+		else {
+			return false;
+		}
 	}
 
 }
